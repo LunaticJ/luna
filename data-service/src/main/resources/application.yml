@@ -1,2 +1,11 @@
 server:
-  port: 9527
+  port: 9100
+
+spring:
+  data:
+    mongodb:
+      host: kuro-mongo-master
+      port: 27017
+      username: admin
+      password: P@ssw0rd
+      database: data-service
