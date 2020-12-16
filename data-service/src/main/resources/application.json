@@ -1,8 +1,0 @@
-{
-  "port": 7100,
-  "datasource": {
-    "host": "kuro-mongo-master",
-    "port": 27017,
-    "db_name": "data-service"
-  }
-}
