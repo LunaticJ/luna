@@ -43,6 +43,11 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-json-schema</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-codegen</artifactId>
+      <scope>provided</scope>
+    </dependency>
 
     <dependency>
       <groupId>io.vertx</groupId>
@@ -64,6 +69,26 @@
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
           <release>11</release>
+          <useIncrementalCompilation>false</useIncrementalCompilation>
+          <annotationProcessors><annotationProcessor>io.vertx.codegen.CodeGenProcessor</annotationProcessor>
+          </annotationProcessors>
+          <!-- 生成java 文件所在目录 -->
+          <generatedSourcesDirectory>${project.basedir}/src/main/generated</generatedSourcesDirectory>
+          <compilerArgs>
+            <arg>-AoutputDirectory=${project.basedir}/src/main</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      <!-- 删除生成的文件 -->
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>${project.basedir}/src/main/generated</directory>
+            </fileset>
+          </filesets>
         </configuration>
       </plugin>
       <plugin>
