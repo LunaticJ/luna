@@ -3,6 +3,7 @@ package com.lunaticj.luna.vertex.todolist.entity;
 import io.vertx.codegen.annotations.DataObject;
 import io.vertx.core.json.JsonObject;
 
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -14,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @DataObject(generateConverter = true)
 public class ToDoEntity {
   // counter
-  private static final AtomicInteger acc = new AtomicInteger();
+  private static final AtomicInteger acc = new AtomicInteger(0);
 
   private int id;
   private String title;
@@ -41,16 +42,18 @@ public class ToDoEntity {
     ToDoEntityConverter.fromJson(new JsonObject(jsonStr), this);
   }
 
+  public JsonObject toJson() {
+    JsonObject json = new JsonObject();
+    ToDoEntityConverter.toJson(this, json);
+    return json;
+  }
+
   public ToDoEntity(int id, String title, Boolean completed, Integer order, String url) {
     this.id = id;
     this.title = title;
     this.completed = completed;
     this.order = order;
     this.url = url;
-  }
-
-  public static AtomicInteger getAcc() {
-    return acc;
   }
 
   public int getId() {
@@ -91,5 +94,33 @@ public class ToDoEntity {
 
   public void setUrl(String url) {
     this.url = url;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ToDoEntity that = (ToDoEntity) o;
+    return id == that.id &&
+      Objects.equals(title, that.title) &&
+      Objects.equals(completed, that.completed) &&
+      Objects.equals(order, that.order) &&
+      Objects.equals(url, that.url);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, title, completed, order, url);
+  }
+
+  @Override
+  public String toString() {
+    return "ToDoEntity{" +
+      "id=" + id +
+      ", title='" + title + '\'' +
+      ", completed=" + completed +
+      ", order=" + order +
+      ", url='" + url + '\'' +
+      '}';
   }
 }
