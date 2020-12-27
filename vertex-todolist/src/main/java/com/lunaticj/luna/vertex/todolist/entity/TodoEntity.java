@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @create 2020-12-24
  **/
 @DataObject(generateConverter = true)
-public class ToDoEntity {
+public class TodoEntity {
   // counter
   private static final AtomicInteger acc = new AtomicInteger(0);
 
@@ -23,10 +23,10 @@ public class ToDoEntity {
   private Integer order;
   private String url;
 
-  public ToDoEntity() {
+  public TodoEntity() {
   }
 
-  public ToDoEntity(ToDoEntity other) {
+  public TodoEntity(TodoEntity other) {
     this.id = other.id;
     this.title = other.title;
     this.completed = other.completed;
@@ -34,26 +34,38 @@ public class ToDoEntity {
     this.url = other.url;
   }
 
-  public ToDoEntity(JsonObject object) {
-    ToDoEntityConverter.fromJson(object, this);
+  public TodoEntity(JsonObject object) {
+    TodoEntityConverter.fromJson(object, this);
   }
 
-  public ToDoEntity(String jsonStr) {
-    ToDoEntityConverter.fromJson(new JsonObject(jsonStr), this);
+  public TodoEntity(String jsonStr) {
+    TodoEntityConverter.fromJson(new JsonObject(jsonStr), this);
   }
 
   public JsonObject toJson() {
     JsonObject json = new JsonObject();
-    ToDoEntityConverter.toJson(this, json);
+    TodoEntityConverter.toJson(this, json);
     return json;
   }
 
-  public ToDoEntity(int id, String title, Boolean completed, Integer order, String url) {
+  public TodoEntity(int id, String title, Boolean completed, Integer order, String url) {
     this.id = id;
     this.title = title;
     this.completed = completed;
     this.order = order;
     this.url = url;
+  }
+
+  public static int getIncId() {
+    return acc.get();
+  }
+
+  public void setIncId() {
+    this.id = acc.incrementAndGet();
+  }
+
+  public static void setIncIdWith(int n) {
+    acc.set(n);
   }
 
   public int getId() {
@@ -100,7 +112,7 @@ public class ToDoEntity {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    ToDoEntity that = (ToDoEntity) o;
+    TodoEntity that = (TodoEntity) o;
     return id == that.id &&
       Objects.equals(title, that.title) &&
       Objects.equals(completed, that.completed) &&
@@ -115,7 +127,7 @@ public class ToDoEntity {
 
   @Override
   public String toString() {
-    return "ToDoEntity{" +
+    return "TodoEntity{" +
       "id=" + id +
       ", title='" + title + '\'' +
       ", completed=" + completed +

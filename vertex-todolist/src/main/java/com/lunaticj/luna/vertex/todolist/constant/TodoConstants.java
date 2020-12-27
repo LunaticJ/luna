@@ -4,7 +4,7 @@ package com.lunaticj.luna.vertex.todolist.constant;
  * @author kuro
  * @create 2020-12-26
  **/
-public class ToDoConstants {
+public class TodoConstants {
 
   public static final String API_GET = "/todolist/:id";
   public static final String API_GET_ALL = "/todolist";
