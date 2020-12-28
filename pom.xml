@@ -13,6 +13,7 @@
         <module>eureka-server</module>
         <module>hello-world</module>
         <module>vertex-todolist</module>
+        <module>vertex-kue-core</module>
         <module>simple-01</module>
     </modules>
 

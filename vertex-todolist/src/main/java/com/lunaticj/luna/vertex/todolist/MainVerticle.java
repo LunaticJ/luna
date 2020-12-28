@@ -78,7 +78,8 @@ public class MainVerticle extends AbstractVerticle {
       .setPort(5432)
       .setHost("luna-project")
       .setUser("postgres")
-      .setPassword("1234qwer");
+      .setPassword("1234qwer")
+      .setDatabase("luna");
 
     PoolOptions poolOptions = new PoolOptions()
       .setMaxSize(5);
