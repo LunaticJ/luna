@@ -1,4 +1,4 @@
-package com.lunaticj.luna.kue;
+package com.lunaticj.luna.wiki;
 
 import io.vertx.core.Vertx;
 import io.vertx.junit5.VertxExtension;

@@ -1,4 +1,4 @@
-package com.lunaticj.luna.kue;
+package com.lunaticj.luna.wiki;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
