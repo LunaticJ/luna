@@ -20,4 +20,8 @@ public class MainVerticle extends AbstractVerticle {
       }
     });
   }
+
+  private void initData(){
+
+  }
 }
