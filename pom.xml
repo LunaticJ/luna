@@ -14,6 +14,7 @@
         <module>hello-world</module>
         <module>vertex-todolist</module>
         <module>vertex-wiki</module>
+        <module>vertex-restful-data</module>
         <module>simple-01</module>
     </modules>
 
