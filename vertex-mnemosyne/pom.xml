@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.lunaticj.luna</groupId>
-  <artifactId>vertex-restful-data</artifactId>
+  <artifactId>vertex-mnemosyne</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
   <properties>
@@ -19,7 +19,7 @@
     <vertx.version>4.0.0</vertx.version>
     <junit-jupiter.version>5.4.0</junit-jupiter.version>
 
-    <main.verticle>com.lunaticj.luna.data.MainVerticle</main.verticle>
+    <main.verticle>com.lunaticj.luna.mnemosyne.MainVerticle</main.verticle>
   </properties>
 
   <dependencyManagement>

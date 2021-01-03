@@ -1,4 +1,4 @@
-package com.lunaticj.luna.data.verticle;
+package com.lunaticj.luna.mnemosyne.verticle;
 
 import io.vertx.core.AbstractVerticle;
 
