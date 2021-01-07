@@ -20,4 +20,8 @@ public class DataVerticle extends AbstractVerticle {
     mongoClient = MongoClient.createShared(vertx, dbConfig);
     startPromise.complete();
   }
+
+  private void initData() {
+
+  }
 }
