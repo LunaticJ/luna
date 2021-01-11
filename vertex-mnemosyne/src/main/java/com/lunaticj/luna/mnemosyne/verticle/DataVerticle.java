@@ -23,6 +23,7 @@ public class DataVerticle extends AbstractVerticle {
   private void initData() {
     JsonObject dbConfig = config();
     mongoClient = MongoClient.createShared(vertx, dbConfig);
+
     if(mongoClient.getCollections().isComplete()) {
       System.out.println("complete");
     }
