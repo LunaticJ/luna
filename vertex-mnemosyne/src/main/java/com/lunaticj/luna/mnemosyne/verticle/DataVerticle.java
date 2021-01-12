@@ -16,7 +16,7 @@ public class DataVerticle extends AbstractVerticle {
 
   @Override
   public void start(Promise<Void> startPromise) throws Exception {
-
+    initData();
     startPromise.complete();
   }
 
