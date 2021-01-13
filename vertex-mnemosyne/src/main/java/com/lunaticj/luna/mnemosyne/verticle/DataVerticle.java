@@ -16,12 +16,11 @@ public class DataVerticle extends AbstractVerticle {
 
   @Override
   public void start(Promise<Void> startPromise) throws Exception {
-    initData();
+    initData(config());
     startPromise.complete();
   }
 
-  private void initData() {
-    JsonObject dbConfig = config();
+  private void initData(JsonObject dbConfig) {
     mongoClient = MongoClient.createShared(vertx, dbConfig);
 
     if(mongoClient.getCollections().isComplete()) {
