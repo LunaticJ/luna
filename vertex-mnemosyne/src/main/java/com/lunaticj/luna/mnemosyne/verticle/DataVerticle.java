@@ -18,6 +18,7 @@ public class DataVerticle extends AbstractVerticle {
   public void start(Promise<Void> startPromise) throws Exception {
     initData(config());
     startPromise.complete();
+    System.out.println("complete");
   }
 
   private void initData(JsonObject dbConfig) {
